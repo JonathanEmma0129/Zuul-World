@@ -8,20 +8,20 @@
  * @version 1.0 (February 2002)
  */
 
-public class Room 
+private class Room 
 {
-    public String description;
-    public Room northExit;
-    public Room southExit;
-    public Room eastExit;
-    public Room westExit;
+    private String description;
+    private Room northExit;
+    private Room southExit;
+    private Room eastExit;
+    private Room westExit;
 
     /**
      * Create a room described "description". Initially, it has
      * no exits. "description" is something like "a kitchen" or
      * "an open court yard".
      */
-    public Room(String description) 
+    private Room(String description) 
     {
         this.description = description;
     }
@@ -30,7 +30,7 @@ public class Room
      * Define the exits of this room.  Every direction either leads
      * to another room or is null (no exit there).
      */
-    public void setExits(Room north, Room east, Room south, Room west) 
+    private void setExits(Room north, Room east, Room south, Room west) 
     {
         if(north != null)
             northExit = north;
@@ -42,11 +42,24 @@ public class Room
             westExit = west;
     }
 
+    public Room getExit(String direction){
+        if (direction.equals("north"))
+            return northExit;
+        if (direction.equals("east"))
+            return eastExit;
+        if (direction.equals("south"))
+            return southExit;
+        if (direction.equals("west"))
+            return westExit;
+    }
+
+    Room nextRoom = currentRoom.westExit(direction);
+
     /**
      * Return the description of the room (the one that was defined
      * in the constructor).
      */
-    public String getDescription()
+    private String getDescription()
     {
         return description;
     }

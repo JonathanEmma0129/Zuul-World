@@ -67,6 +67,8 @@ public class Game
         System.out.println();
         System.out.println("Welcome to the World of Zuul!");
         System.out.println("Type 'help' if you need help.");
+
+        /*
         System.out.println();
         System.out.println("You are " + currentRoom.getDescription());
         System.out.print("Exits: ");
@@ -80,12 +82,14 @@ public class Game
             System.out.print("west ");
         System.out.println();
     }
+    */
 
     /**
      * Given a command, process (that is: execute) the command.
      * If this command ends the game, true is returned, otherwise false is
      * returned.
      */
+
     private boolean processCommand(Command command) 
     {
         boolean wantToQuit = false;
@@ -138,6 +142,8 @@ public class Game
 
         // Try to leave current room.
         Room nextRoom = null;
+            Room nextRoom = currentRoom.westExit(direction);
+        /*
         if(direction.equals("north"))
             nextRoom = currentRoom.northExit;
         if(direction.equals("east"))
@@ -164,6 +170,7 @@ public class Game
             System.out.println();
         }
     }
+    */
 
     /** 
      * "Quit" was entered. Check the rest of the command to see
